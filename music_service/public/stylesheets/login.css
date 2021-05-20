@@ -1,0 +1,182 @@
+@keyframes spinner {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotateZ(359deg); } }
+* {
+  box-sizing: border-box; }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 12%; }
+
+.login {
+  border-radius: 2px 2px 5px 5px;
+  padding: 10px 20px 20px 20px;
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  background-color:rgba(79, 243, 255, 0.281);
+  position: relative;
+  padding-bottom: 50px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3); }
+  .login1 {
+    border-radius: 2px 2px 5px 5px;
+    padding: 10px 20px 20px 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+    background-color:rgba(32, 2, 32, 0.226);
+    position: relative;
+    padding-bottom: 50px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3); }
+  .login.loading button {
+    max-height: 100%;
+    padding-top: 50px; }
+    .login.loading button .spinner {
+      opacity: 1;
+      top: 40%; }
+  .login.ok button {
+    background-color: #8bc34a; }
+    .login.ok button .spinner {
+      border-radius: 0;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      height: 20px;
+      animation: none;
+      transform: rotateZ(-45deg); }
+  .login input {
+    display: block;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    transition: border-width 0.2s ease;
+    border-radius: 2px;
+    color: #ccc; }
+    .login input + i.fa {
+      color: #fff;
+      font-size: 1em;
+      position: absolute;
+      margin-top: -47px;
+      opacity: 0;
+      left: 0;
+      transition: all 0.1s ease-in; }
+    .login input:focus {
+      outline: none;
+      color: #444;
+      border-color: #2196F3;
+      border-left-width: 35px; }
+      .login input:focus + i.fa {
+        opacity: 1;
+        left: 30px;
+        transition: all 0.25s ease-out; }
+  .login a {
+    font-size: 0.8em;
+    color: #2196F3;
+    text-decoration: none; }
+  .login .title {
+    color: #444;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0 30px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px; }
+  
+  .login:not(.loading) button:hover {
+    box-shadow: 0px 1px 3px #2196F3; }
+  .login:not(.loading) button:focus {
+    border-bottom-width: 4px; }
+
+
+    .login1.loading button {
+      max-height: 100%;
+      padding-top: 50px; }
+      .login1.loading button .spinner {
+        opacity: 1;
+        top: 40%; }
+    .login1.ok button {
+      background-color: #8bc34a; }
+      .login1.ok button .spinner {
+        border-radius: 0;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        height: 20px;
+        animation: none;
+        transform: rotateZ(-45deg); }
+    .login1 input {
+      display: block;
+      padding: 15px 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      transition: border-width 0.2s ease;
+      border-radius: 2px;
+      color: #ccc; }
+      .login1 input + i.fa {
+        color: #fff;
+        font-size: 1em;
+        position: absolute;
+        margin-top: -47px;
+        opacity: 0;
+        left: 0;
+        transition: all 0.1s ease-in; }
+      .login1 input:focus {
+        outline: none;
+        color: #444;
+        border-color: #2196F3;
+        border-left-width: 35px; }
+        .login1 input:focus + i.fa {
+          opacity: 1;
+          left: 30px;
+          transition: all 0.25s ease-out; }
+    .login1 a {
+      font-size: 0.8em;
+      color: #2196F3;
+      text-decoration: none; }
+    .login1 .title {
+      color: #444;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0 30px 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px; }
+    
+    .login1:not(.loading) button:hover {
+      box-shadow: 0px 1px 3px #2196F3; }
+    .login1:not(.loading) button:focus {
+      border-bottom-width: 4px; }
+  
+
+footer {
+  display: block;
+  padding-top: 50px;
+  text-align: center;
+  color: #ddd;
+  font-weight: normal;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+  font-size: 0.8em; }
+  footer a, footer a:link {
+    color: #fff;
+    text-decoration: none; }
+
+/*# sourceMappingURL=login.css.map */
+
+.bdlogin{
+  border-style: solid;
+  border-color: #3f32f8;
+  border-width: 2px;
+  color: #3f32f8;
+}
+
+.bdregis{
+  border-style: solid;
+  border-color: #ff00f2;
+  border-width: 2px;
+  color: #000000;
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMood</title>
+    <link rel = "icon" href = "images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
+    <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6)">
+        <a class="navbar-brand text-white" href="#">
+          <% if(name === 'undefined'){ %>
+            <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(preOrNot){ %>
+            <img src="/images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(!preOrNot){ %>
+            <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%} %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active button">
+              <a class="nav-link text-light" href="/"> Home</a>
+            </li>
+            <%if(name === 'undefined'){ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > FAV/Downloads </a>
+              </li>
+            <%}else{ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="/favorite"> FAV/Downloads </a>
+              </li>
+            <%} %>
+            <%if(name === 'undefined'){ %>
+              
+              <%}else{ %>
+                <li class="nav-item button">
+                  <a class="nav-link text-light" href="/premium">Premium👑</a>
+                </li>
+              <%} %>
+              <%if(name === 'undefined'){ %>
+
+                <%}else{ %>
+                  <li class="nav-item button">
+                    <a class="nav-link text-light" href="#" data-target="#example" data-toggle="modal">LogOut</a>
+                  </li>
+                <%} %>  
+          </ul>
+          <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="slide btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <% if(name === 'undefined'){ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <a href="/login" class="nav-link text-light pulse1 rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b>LOGIN</b></a>
+            </li>
+          <% }else{ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <% if(preOrNot){ %>
+                <a href="/goprofile/<%= name %>" class="pulse nav-link text-light rounded" style="text-align: center; border: 2px solid; border-color:yellow;"><b><i class="fa fa-user"></i> :</b> <%= name %> 👑</a>
+              <%}else{ %>
+                <a href="/goprofile/<%= name %>" class="pulse1 nav-link text-light  rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b><i class="fa fa-user"></i> :</b> <%= name %></a>
+              <%} %>
+            </li> 
+          <% } %>
+        </div>
+    </nav>
+    <div class="m-auto" style="width: 90%;">
+      <div class="mb-5 p-3 rounded container-fluid" style="background-color:rgba(208, 215, 221, 0.8)">
+        <a  href="/gobacklistsong/<%= name %>/<%= artist %>">
+          <img class="float-left img-fluid m-3" width="30px" src="/images/arrow.png">
+        </a>
+          <%if(name === 'undefined'){ %>
+            <a href="#" class="" data-target="#fav" data-toggle="modal">
+              <img class="float-right img-fluid m-3" width="30px" src="/images/darkstar.png">
+            </a>
+          <%}else{ %>
+            <%if(bl === false){ %>
+              <a href="/favdetail/<%= name %>/<%= artist %>/<%= song %>">
+                <img class="float-right img-fluid m-3" width="30px" src="/images/darkstar.png">
+              </a>
+            <%}else{ %>
+              <a href="/delfavdetail/<%= name %>/<%= artist %>/<%= song %>">
+                <img class="float-right img-fluid m-3" width="30px" src="/images/star.png">
+              </a>
+            <%} %>
+          <%} %>
+          <%if(preOrNot){ %>
+            <a href="#"  data-target="#com" data-toggle="modal">
+              <img class="float-right img-fluid m-3" width="30px" src="/images/downloadsong.png">
+            </a>
+          <%} %>
+          <div class="row " >
+              <img src="<%= artimg %>" class="m-auto img-fluid rounded img-thumbnail mt-5 ml-5 col-lg-3">
+              <div class="col-lg-6" style="word-wrap: break-word;">
+                <p class=" m-5 mb-2"  style="font-size: 60px;"><br><%= song %><br></p>
+                <h5 class="m-5">Artist : <span style="font-size: 25px;"><%= artist %></span></h5>
+                <h5 class="m-5">Genre : <span class=" badge badge-primary"><%= genre1 %></span></h5>
+                <td class="align-middle">
+                <div class="pl-5">
+                  <audio controls >
+                    <source  src="<%= singfav %>" type="audio/mpeg">
+                  </audio>
+                </div>
+                </td>
+              </div> 
+          </div>
+          <h1 class="p-3 ml-5 mt-4 col-lg-6 ">Lyrics this song :</h1>
+          <p id="song" class="text-center"><%= detail %></p>
+          <script>
+              const c = document.getElementById('song').textContent
+              document.getElementById('song').innerHTML = c
+          </script>
+      </div>
+    </div>
+    <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">LogOut</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure to LogOut?
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/logout">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">LogOut</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="checkLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">Warning</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Please Login.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="fav" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">this content for user</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            login to unlocked this feature
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/login">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">LogIn</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="com" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">Download</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure to download <h5><%= song %></h5>
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/download/<%= artist %>/<%= song %>">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Ok</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

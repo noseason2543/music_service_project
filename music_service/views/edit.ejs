@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMood</title>
+    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../javascripts/editconfirm.js" defer></script>
+    <link href="../stylesheets/button.css" rel="stylesheet">
+    <link href="../stylesheets/fontandbg.css" rel="stylesheet">
+    <link href="../stylesheets/buttonprofile.css" rel="stylesheet">
+    <link href="../stylesheets/proshow.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6)">
+        <a class="navbar-brand text-white" href="#">
+          <% if(name === 'undefined'){ %>
+            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(preOrNot){ %>
+            <img src="../images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(!preOrNot){ %>
+            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%} %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active button">
+              <a class="nav-link text-light " href="/"> Home</a>
+            </li>
+            <%if(name === 'undefined'){ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > FAV/Downloads </a>
+              </li>
+            <%}else{ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="/favorite" style="font-family: Poppins;"> FAV/Downloads </a>
+              </li>
+            <%} %>
+            <%if(name === 'undefined'){ %>
+              
+              <%}else{ %>
+                <li class="nav-item button">
+                  <a class="nav-link text-light" href="/premium">Premium👑</a>
+                </li>
+              <%} %>
+              <%if(name === 'undefined'){ %>
+
+                <%}else{ %>
+                  <li class="nav-item button">
+                    <a class="nav-link text-light" href="#" data-target="#example" data-toggle="modal">LogOut</a>
+                  </li>
+                <%} %>  
+          </ul>
+          <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="slide btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <% if(name === 'undefined'){ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <a href="/login" class="nav-link text-light pulse1 rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b>LOGIN</b></a>
+            </li>
+          <% }else{ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <% if(preOrNot){ %>
+                <a href="/goprofile/<%= name %>" class="pulse nav-link text-light rounded" style="text-align: center; border: 2px solid; border-color:yellow;"><b><i class="fa fa-user"></i> :</b> <%= name %> 👑</a>
+              <%}else{ %>
+                <a href="/goprofile/<%= name %>" class="pulse1 nav-link text-light  rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b><i class="fa fa-user"></i> :</b> <%= name %></a>
+              <%} %>
+            </li> 
+          <% } %>
+    </nav>
+      <form action="/confirmedit" method="POST">
+        <div class="window container-fluid" style="margin-top:150px; ">
+          <div class="overlay"></div>
+          <div class="box header">
+            <%if(preOrNot){ %>
+              <img src="../images/bestlogopre.png" alt="" />
+            <%}else{ %>
+              <img src="../images/bestlogo.png" alt="" />
+            <%} %>
+            <h2><i class="fa fa-user"></i> : </h2>
+            <input name="editname" type="text" placeholder="wqfqwgqgwqgq" value="<%= name %>" class="form-control w-75 m-auto text-center mt-1">
+            <h4><i class="fa fa-envelope" aria-hidden="true"></i> : </h4>
+            <input name="email1" type="text" placeholder="wqfqwgqgwqgq" value="<%= email %>" class="form-control m-auto text-center w-75 mt-1"> 
+            <h4><i class="fa fa-calendar mt-1" aria-hidden="true"></i> : <%= createdAt %></h4>
+          </div>
+          <div class="box footer pt-4">
+            <ul>
+              <li><a >Follow : <%= aart %> Artist</a></li>
+          <li><a  style="color: white;"><i class="fa fa-star" style="color: yellow; width:40px" aria-hidden="true"></i> <%= follow %> Song</a></li>
+            </ul>
+              <input class="m-auto w-50 dark form-control mt-5 pulse1" style="border-radius: 30px;" type="button" value="confirm" data-toggle="modal" data-target="#exampleModalCenter">
+          </div>
+        </div> 
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                you want to save???
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </form>
+    <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">LogOut</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure to LogOut?
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/logout">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">LogOut</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="fav" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">this content for user</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            login to unlocked this feature
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/login"></form>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">LogIn</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>

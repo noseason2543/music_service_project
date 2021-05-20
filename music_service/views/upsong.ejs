@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CMood</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top text-light" style="background-color:rgb(4, 4, 87,0.6)">
+        <h1><img src="/images/bestlogopre.png" width="40px">CMood</h1>
+    </nav>
+    <div class="m-auto mt-5 rounded p-5" style="width: 90%; background-color:rgb(232, 244, 255,0.4); word-wrap:break-word">
+        <a class="float-left" href="/backEnd"><img class="float-left img-fluid " width="30px" src="/images/arrow.png"></a>
+        <h1 style="font-size: 80px;" class="button">UPLOAD SONG :</h1>
+        <form action="/upload" method="POST" class="row p-5" enctype="multipart/form-data">
+            <div class="col-lg-6">
+                <label for="singer"><h1>Artist:</h1></label>
+                <input type="text" name="singer" class="form-control rounded me-2 buscar-txt search-bar" size="60" placeholder="Singer name:....." /><br />
+                <label for="songname"><h1>Song name:</h1></label>
+                <input type="text" name="songname" class="form-control rounded me-2 buscar-txt search-bar" placeholder="Song name:....." /><br />
+                <h1>Genre:</h1>
+                <input type="radio" id="t1" name="genre" value="Thai Pop">
+                <label for="t1">Thai Pop</label><br>
+                <input type="radio" id="t2" name="genre" value="Korea">
+                <label for="t2">Korea</label><br>
+                <input type="radio" id="t3" name="genre" value="international">
+                <label for="t3">international</label><br>
+                <input type="radio" id="t4" name="genre" value="indie">
+                <label for="t4">indie</label><br>
+            </div>
+            <div class="col-lg-6">
+                <label for="URLimage"><h1>Image URL:</h1></label>
+                <input type="text" name="URLimage" class="form-control rounded me-2 buscar-txt search-bar" placeholder="place URL here..."/><br />
+                <label for="path"><h1>Path song:</h1></label><br>
+                <input type="text" name="path" class="form-control rounded me-2 buscar-txt search-bar"placeholder="place path here..." >
+                <label for="uploadedFileMP3"><h1>MP3 file:</h1></label><br>
+                <input type="file" name="uploadedFileMP3" value="MP3"/> <br><br>
+                <label for="lyrics"><h1>lyrics:</h1></label>
+                <textarea id="te" name="lyrics" rows="4" cols="20" class="form-control rounded me-2 buscar-txt search-bar"  placeholder="place lyrics here..."></textarea>  
+                <input type="submit" class="btn pulse w-50 mt-3" style="border-radius:10px; font-size: 30px; border-width:3px; border-color:yellow; background-color:yellow" value="Upload File" />
+            </div>
+        </form>
+        <br>
+    </div>
+    
+    
+</body>
+</html>

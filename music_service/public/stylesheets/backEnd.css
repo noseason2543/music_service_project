@@ -1,0 +1,8 @@
+body{
+    background-color: black;
+}
+
+input:hover{
+    background-color: rgb(155, 155, 155);
+    border-width: 0px;
+}

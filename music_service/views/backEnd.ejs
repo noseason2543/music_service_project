@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>BackEnd CMood</title>
+    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="../stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="../stylesheets/buttonprofile.css">
+    <link rel="stylesheet" href="../stylesheets/button.css">
+    <style>
+        .d{
+          color: white;
+        }
+        .d:hover{
+          color: rgb(0, 0, 0);
+  
+        }
+      </style>
+</head>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(4, 4, 87,0.6)">
+        <h1 class="text-light"><img src="../images/bestlogopre.png" width="40px">CMood</h1>
+    </nav>
+    <div style="text-align: center; color:white; font-size:100px">
+        ADMIN ZONE
+    </div>
+    <form method="GET" action="/all" class="form-group w-25 " style="margin: auto; margin-top:150px">
+        <input type="submit" value="Edit Member User" class="form-control up d" style="background-color: none; border-width:3px">
+    </form>
+    <form method="GET" action="/start" class="form-group w-25" style="margin: auto; margin-top:25px">
+        <input type="submit" value="Add music" class="form-control up d" style="background-color: none; border-width:3px">
+    </form>    
+    <form method="GET" action="/delsong" class="form-group w-25" style="margin: auto; margin-top:25px">
+        <input type="submit" value="Delete music" class="form-control up d" style="background-color: none; border-width:3px">
+    </form>
+    <form method="GET" action="/logout" class="form-group w-25" style="margin: auto; margin-top:25px">
+        <input type="submit" value="LOGOUT" class="form-control up d" style="background-color: none; border-width:3px">
+    </form>
+</body>
+</html>

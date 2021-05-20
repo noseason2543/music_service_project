@@ -1,0 +1,41 @@
+<%- include('header.ejs') -%>
+
+<div class="container container-fluid" style=" padding:8%;">
+  <div class="p-5 " style="border-radius:12px; background-color:rgba(48, 155, 255, 0.4); ">
+    <div class="row">
+      <img src="../images/it.gif" class="col-lg-6 " style="max-height: 600px;">
+      <div class="text-center col-lg-6">
+        <form class="login" method="POST" action="/auth/login">
+          <div class="bg-primary">
+            <a href="/"><i class="fa fa-home float-right" style="width: 10px; color:white"></i></a>
+          </div>
+          <p class="title text-center pt-2 pb-0" style="font-size: 50px; color:white">Login</p>
+                  <div class="form-group mt-5">
+                    
+                    <!-- <label for="username" class="sr-only">Username</label> -->
+                    <input type="text" name="username" class="" id="username" placeholder="Username" autofocus required>
+                    <i class="fa fa-user"></i>
+                  </div> 
+                  <div class="form-group">
+                    <label for="password" class="sr-only">Password</label> 
+                    <input type="password" name="password" id="password" class="" placeholder="Password" required>
+                    <i class="fa fa-key"></i>
+                  </div>  
+                  <div class="pulse2 mt-4">
+                    <button class=" btn  btn-block bdlogin" type="submit">
+                      <i class="spinner"></i>
+                      <span class="state" style="font-size: 18px;">Login</span>
+                    </button> 
+                  </div>
+                  
+                    <%if (resultText !== ''){ %>
+                      <p class="alert alert-danger"><%= resultText %></p>
+                    <%} %>  
+                      
+                  <a href="/register" class="btn mt-3 btn-link" style="color: blue; font-size:16px">Don't have an account?</a> 
+        </form>
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('footer.ejs') -%>      

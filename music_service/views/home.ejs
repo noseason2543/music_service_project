@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMood</title>
+    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="../stylesheets/home.css">
+    <link rel="stylesheet" href="../stylesheets/button.css">
+    <link rel="stylesheet" href="../stylesheets/buttonprofile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6)">
+        <a class="navbar-brand text-white" href="#">
+          <% if(name === 'undefined'){ %>
+            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(preOrNot){ %>
+            <img src="../images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%}else if(!preOrNot){ %>
+            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <%} %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active button">
+              <a class="nav-link text-light " href="#"> Home</a>
+            </li>
+            <%if(name === 'undefined'){ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > FAV/Downloads </a>
+              </li>
+            <%}else{ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="/favorite"> FAV/Downloads </a>
+              </li>
+            <%} %>
+            <%if(name === 'undefined'){ %>
+              
+            <%}else{ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="/premium">Premium👑</a>
+              </li>
+            <%} %>
+            <%if(name === 'undefined'){ %>
+
+            <%}else{ %>
+              <li class="nav-item button">
+                <a class="nav-link text-light" href="#" data-target="#example" data-toggle="modal">LogOut</a>
+              </li>
+            <%} %>
+          </ul>
+          <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="slide btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <% if(name === 'undefined'){ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <a href="/login" class="nav-link text-light pulse1 rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b>LOGIN</b></a>
+            </li>
+          <% }else{ %>
+            <li class="nav-item ml-auto mb-3" style="width: 200px;">
+              <% if(preOrNot){ %>
+                <a href="/goprofile/<%= name %>" class="pulse nav-link text-light rounded" style="text-align: center; border: 2px solid; border-color:yellow;"><b><i class="fa fa-user"></i> :</b> <%= name %> 👑</a>
+              <%}else{ %>
+                <a href="/goprofile/<%= name %>" class="pulse1 nav-link text-light  rounded" style="text-align: center; border: 2px solid; border-color:rgb(255, 255, 255)"><b><i class="fa fa-user"></i> :</b> <%= name %></a>
+              <%} %>
+            </li> 
+          <% } %>
+    </nav>   
+    <div class="rounded" style="background-color: rgb(138, 228, 228,0.2); padding:2%; margin:3%">
+      <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="Title">LogOut</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure to LogOut?
+            </div>
+            <div class="modal-footer">
+              <form method="GET" action="/logout">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">LogOut</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="fav" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="Title">this content for user</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              login to unlocked this feature
+            </div>
+            <div class="modal-footer">
+              <form method="GET" action="/login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">LogIn</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p style="margin: 10px; margin-left:30px; font-size:80px; color:white" class="button text-left" >HOME :</p>
+       <div id="carouselExampleIndicators" style="margin-top: 50px;" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" >
+          <div class="carousel-item active" >
+            <center>
+              <a href="/findlistsong/itzy"><img src="../images/not2.gif" style="width:100%; height: 750px;" class="img-fluid d-block style_prevu_kit"  alt="..."></a> 
+            </center>
+          </div>
+          <div class="carousel-item">
+            <center>
+              <a href="/findlistsong/the toys"><img src="../images/vinelada.jpg" style="width:100%; height: 750px;" class="img-fluid d-block style_prevu_kit" alt="..."></a>
+            </center>
+          </div>
+          <div class="carousel-item">
+            <center>
+              <a href="/findlistsong/ink waruntorn"><img src="../images/ink_eye.jpg" style="width:100%; height: 750px;" class="img-fluid d-block style_prevu_kit" alt="..."></a>
+            </center>
+          </div>
+        </div> 
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div><br>
+      <p class="button text-left" style="color: white; margin-left:30px; padding:10px; font-size:60px;">HOT playList :</p><br>
+      <div class="rounded container-fluid background-catalog d-flex row m-auto p-5" style="text-align: center; word-wrap:break-word; width:95%">   
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px;">
+          <a href="/poppular" style="text-decoration:none"><img src="../images/pop.jpg"  class="rounded img-fluid" width="250px"><p style="padding-top: 15px; font-size:20px; color:white">popular music</p></a><br>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/allgenresong/Thai pop music/Thai Pop/toylist.jpg" style="text-decoration:none"><img src="../images/toylist.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">Thai pop music</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/allgenresong/K-pop music/Korea/kpop.jpg" style="text-decoration:none"><img src="../images/kpop.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">korea music</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/allgenresong/International music/international/inter.jpg" style="text-decoration:none"><img src="../images/inter.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">international music</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto">
+          <a href="/allgenresong/Indie music/indie/indie.jpg" style="text-decoration:none"><img src="../images/indie.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">indie music</p></a>
+        </div>
+      </div>
+      <br><br>
+      <p class="button text-left" style="color: white; margin-left:30px; padding:10px; font-size:60px;">Recommend Artist :</p><br>
+      <div class="rounded container-fluid background-catalog d-flex row m-auto p-5" style="text-align: center; word-wrap:break-word; width:95%">   
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/findlistsong/blackpink" style="text-decoration:none"><img src="../images/blackpink.jpg" class="rounded img-fluid" width="250px"><p style="padding-top: 15px; font-size:20px; color:white">Blackpink</p></a><br>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/findlistsong/safeplanet" style="text-decoration:none"><img src="../images/safeplanet.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">Safeplanet</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/findlistsong/ink waruntorn" style="text-decoration:none"><img src="../images/ink.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">Ink waruntorn</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto; margin-bottom:10px">
+          <a href="/findlistsong/bruno mars" style="text-decoration:none"><img src="../images/bruno.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">Bruno mars</p></a>
+        </div>
+        <div class="button wrap col-lg-2 col-md-5 mb-4 rounded d-block style_prevu_kit" style="background-color: rgb(138, 228, 228,0.2); padding:10px; padding-top:20px; padding-bottom:20px; margin-right:auto">
+          <a href="/findlistsong/the toys" style="text-decoration:none"><img src="../images/15.jpg" class="rounded img-fluid" width="250px"><br><p style="padding-top: 15px; font-size:20px; color:white">The toys</p></a>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br>  
+    </div>
+</body>
+</html>

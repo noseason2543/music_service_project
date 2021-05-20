@@ -1,0 +1,77 @@
+.style_prevu_kit
+{
+    display:inline-block;
+    border:0;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+
+}
+.style_prevu_kit:hover
+{
+    
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+    opacity: 85%;
+}
+a:link {
+    text-decoration:none;
+    }
+    A:visited {
+    text-decoration:none;
+    }
+.background-catalog{
+    background-color:rgb(138, 228, 228,0.4) ;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+body {
+    font-family: Poppins;
+    background-image: url(https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-5120x2880-1432.jpg);
+    
+    background-position: center;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    @media screen and (max-width: 480px) {
+     padding: 0.8em;
+    }
+   }
+
+   div{
+    font-family: Poppins;
+   }
+   a{
+    font-family: Poppins;
+   }
+   h1{
+    font-family: Poppins;
+   }
+   p{
+    font-family: Poppins;
+   }
+
+   .search-bar {
+    height: 40px;
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    padding-left: 16px;
+    border-radius: 4px;
+    
+   }
