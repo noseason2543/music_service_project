@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/fontandbg.css">
     <link rel="stylesheet" href="/stylesheets/button.css">
+    <link rel="stylesheet" href="/stylesheets/playmusic.css">
     <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -79,8 +80,8 @@
         </div>
     </nav>
     <div class="m-auto" style="width: 90%;">
-      <div class="mb-5 p-3 rounded container-fluid" style="background-color:rgba(208, 215, 221, 0.8)">
-        <a  href="/gobacklistsong/<%= name %>/<%= artist %>">
+      <div class="mb-5 p-3 mt-5  container-fluid" style="background-color:rgb(232, 244, 255,0.5);border-radius:35px">
+        <a  href="/listsong/goback/<%= name %>/<%= artist %>">
           <img class="float-left img-fluid m-3" width="30px" src="/images/arrow.png">
         </a>
           <%if(name === 'undefined'){ %>
@@ -89,11 +90,11 @@
             </a>
           <%}else{ %>
             <%if(bl === false){ %>
-              <a href="/favdetail/<%= name %>/<%= artist %>/<%= song %>">
+              <a href="/lyrics/addFav/<%= name %>/<%= artist %>/<%= song %>">
                 <img class="float-right img-fluid m-3" width="30px" src="/images/darkstar.png">
               </a>
             <%}else{ %>
-              <a href="/delfavdetail/<%= name %>/<%= artist %>/<%= song %>">
+              <a href="/lyrics/unFav/<%= name %>/<%= artist %>/<%= song %>">
                 <img class="float-right img-fluid m-3" width="30px" src="/images/star.png">
               </a>
             <%} %>
@@ -104,19 +105,39 @@
             </a>
           <%} %>
           <div class="row " >
-              <img src="<%= artimg %>" class="m-auto img-fluid rounded img-thumbnail mt-5 ml-5 col-lg-3">
+              <div class="col-lg-3 ml-5 mr-5 m-auto" style="margin-top: 100px;">
+                <img src="<%= artimg %>" style="width: 100%;" class=" img-fluid rounded img-thumbnail mt-5 ">
+              </div>
               <div class="col-lg-6" style="word-wrap: break-word;">
                 <p class=" m-5 mb-2"  style="font-size: 60px;"><br><%= song %><br></p>
                 <h5 class="m-5">Artist : <span style="font-size: 25px;"><%= artist %></span></h5>
                 <h5 class="m-5">Genre : <span class=" badge badge-primary"><%= genre1 %></span></h5>
-                <td class="align-middle">
-                <div class="pl-5">
-                  <audio controls >
-                    <source  src="<%= singfav %>" type="audio/mpeg">
-                  </audio>
-                </div>
-                </td>
+                <% if(name === 'undefined'){ %>
+
+                <% }else{ %>
+                  <h1 id="pathsong" style="display: none;"><%= singfav %></h1>
+                  <div class="p-2">
+                    <td>
+                      <div class="pl-5 ">
+                        <div class="row middle mb-3">
+                          <button class="col-lg-1" onclick="justplay()" id="play"><i class="fa fa-play"></i></button>
+                          <div class=" col-lg-11">
+                            <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                          </div>
+                        </div>
+                        
+                        <div class="volume">
+                          <span id="volume_show" class=" ">90</span>
+                          <i class="fa fa-volume-up " aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+                          <input class=" " type="range" min="0" max="100" value="90" onchange="volume_change()" id="volume">  
+                        </div>
+                      </div>
+                    </td>
+                  </div>
+                    
+                <%} %>
               </div> 
+              <script src="/javascripts/playSong.js"></script>
           </div>
           <h1 class="p-3 ml-5 mt-4 col-lg-6 ">Lyrics this song :</h1>
           <p id="song" class="text-center"><%= detail %></p>
@@ -199,10 +220,8 @@
             Are you sure to download <h5><%= song %></h5>
           </div>
           <div class="modal-footer">
-            <form method="GET" action="/download/<%= artist %>/<%= song %>">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Ok</button>
-            </form>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a href="<%= singfav %>" download=""><button type="submit" onclick="$('#com').modal('hide')" class="btn btn-primary" >Ok</button></a>
           </div>
         </div>
       </div>

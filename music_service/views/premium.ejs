@@ -26,8 +26,8 @@
       }
     </style>
 </head>
-<body style="background-color: black;">
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6)">
+<body style="">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6);margin-bottom:0.3%">
     <a class="navbar-brand text-white" href="#">
       <% if(name === 'undefined'){ %>
         <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
@@ -87,8 +87,7 @@
         </li> 
       <% } %>
     </nav>
-    </nav>
-    <div class="container-fuild m-auto  " style="width: 90%;">
+    <div class="container-fuild m-auto  " style="width: 90%; background-color: rgba(0, 0, 0, 0.6); border-radius:50px">
       <% if(!preOrNot){ %>
         <div class="rounded bgground p-5  container-fluid " style="word-wrap:break-word">
           <div class="insidebg row rounded">
@@ -102,9 +101,9 @@
                 <span class="badge badge-warning" style="color:green"><b>139 Baht/month</b></span>
               </p>
               <h1 style="color: white;"><b>your account : <%= name %></b></h1><br>
-              <form action="/getpremium" method="GET">
-                <input type="submit" value="Enter premium" class="w-50 btn offset d p-3" >
-              </form>
+              
+              <input type="submit" value="Enter premium" data-target="#enterpremium" data-toggle="modal" class="w-50 btn offset d p-3" >
+              
             </div>
             
           </div>
@@ -117,9 +116,9 @@
               <h1 class="button text-left" style="font-size:80px; color:white">Premium Account</h1>
               <h1 style="color: white;">your account : <%= name %></h1>
               <h2 style="color: white;">You already have premium 👑</h2><br>
-              <form action="/cancelpremium" method="GET" >
-                <input type="submit" value="Cancel premium" class="w-50 btn  offset d p-3">
-              </form>
+              
+              <input type="submit" value="Cancel premium" data-target="#cancelpremium" data-toggle="modal" class="w-50 btn  offset d p-3">
+              
             </div>
             
           </div>
@@ -167,6 +166,48 @@
           </div>
         </div>
       </div>
-    </div>      
+    </div>  
+    <div class="modal fade" id="enterpremium" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">Premium👑</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure to join premium?
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/getpremium">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="modal fade" id="cancelpremium" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Title">Premium👑</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure to leave premium?
+          </div>
+          <div class="modal-footer">
+            <form method="GET" action="/cancelpremium">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>         
 </body>
 </html>

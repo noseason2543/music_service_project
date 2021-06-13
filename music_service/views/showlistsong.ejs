@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMood</title>
-    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
+    <link rel = "icon" href = "/images/bestlogopre.png" type = "image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="../stylesheets/fontandbg.css">
-    <link rel="stylesheet" href="../stylesheets/button.css">
-    <link rel="stylesheet" href="../stylesheets/buttonprofile.css">
+    <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
+    <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 <body >
     <nav class="navbar navbar-expand-lg navbar-light sticky-top"style="background-color:rgb(4, 4, 87,0.6)" >
         <a class="navbar-brand text-white" href="#">
           <% if(name2 === 'undefined'){ %>
-            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+            <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
           <%}else if(preOrNot2){ %>
-            <img src="../images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+            <img src="/images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
           <%}else if(!preOrNot2){ %>
-            <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+            <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
           <%} %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
         </div>
     </nav>
     <div class="m-auto" style="width: 90%;">
-      <div class="mb-5 p-5 rounded container-fluid" style="background-color:rgb(232, 244, 255,0.4)">
+      <div class="mb-5 mt-5 p-5  container-fluid" style="background-color:rgb(232, 244, 255,0.4);border-radius:35px">
         <div class="row ">
           <img src="<%= artistimage %>" class="img-fluid rounded col-lg-3" >
           <div class="m-5 col-lg-6 " >
@@ -89,7 +89,7 @@
         </div>
         <br>
         <h1 class=" m-3 button text-left">Song list :</h1><br>
-        <form class="d-flex flex-row-reverse form-group " action="/listsearch/<%= artistDB %>" method="POST">
+        <form class="d-flex flex-row-reverse form-group " action="/listsong/search/<%= artistDB %>" method="POST">
           <button class="slide btn btn-outline-info" type="submit">Search</button>
           <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
         </form>
@@ -99,7 +99,7 @@
               <th scope="col">Number</th>
               <th scope="col">Artist</th>
               <th scope="col">Title</th>
-              <th scope="col">song</th>
+              <!-- <th scope="col">song</th> -->
               <th scope="col">Download</th>
               <th scope="col">lyrics</th>
               <th scope="col">Favorite</th>
@@ -111,28 +111,28 @@
                 <th scope="row" class="align-middle"><%= i+1 %></th>
                 <th><img src="<%= artistimage %>" class="img-fluid" width="100px">&nbsp;&nbsp;<%= artistDB %></th>
                 <th class="align-middle"><%= arrsong2[i] %></th>
-                <td class="align-middle">
+                <!-- <td class="align-middle">
                   <audio controls >
                     <source  src="<%= singfav[i] %>" type="audio/mpeg">
                   </audio>
-                </td>
+                </td> -->
                 <%if(name2 === 'undefined'){ %>
-                  <td class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="../../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                  <td class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                 <%}else{ %>
                   <%if(preOrNot2){ %>
-                    <td class="align-middle"><a href="" data-target="#com<%= i %>" data-toggle="modal"><img src="../../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                    <td class="align-middle"><a href="" data-target="#com<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                   <%}else{ %>
-                    <td class="align-middle"><a href="" data-target="#gopre<%= i %>" data-toggle="modal"><img src="../../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                    <td class="align-middle"><a href="" data-target="#gopre<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                   <%} %>
                 <%} %>
-                <th class="align-middle"><a href="/detail/<%= artistDB %>/<%= arrsong2[i] %>"><img src="../images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
+                <th class="align-middle"><a href="/lyrics/detail/<%= artistDB %>/<%= arrsong2[i] %>"><img src="/images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
                 <%if(name2 === 'undefined'){ %>
-                  <th class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="../images/darkstar.png" class="img-fluid" width="30px"></a></th>
+                  <th class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="/images/darkstar.png" class="img-fluid" width="30px"></a></th>
                 <%}else{ %>
                   <%if(tf[i]){ %>
-                    <th class="align-middle"><a href="/favlistdel/<%= artistDB %>/<%= arrsong2[i] %>" ><img src="../images/star.png" class="img-fluid" width="30px"></a></th>
+                    <th class="align-middle"><a href="/listsong/unFav/<%= artistDB %>/<%= arrsong2[i] %>" ><img src="/images/star.png" class="img-fluid" width="30px"></a></th>
                   <%}else{ %>
-                    <th class="align-middle"><a href="/favlist/<%= artistDB %>/<%= arrsong2[i] %>"><img src="../images/darkstar.png" class="img-fluid" width="30px"></a></th>
+                    <th class="align-middle"><a href="/listsong/addFav/<%= artistDB %>/<%= arrsong2[i] %>"><img src="/images/darkstar.png" class="img-fluid" width="30px"></a></th>
                   <%} %>
                 <%} %>
               </tr>
@@ -169,11 +169,9 @@
                   <div class="modal-body">
                     Are you sure to download <h5><%= arrsong2[i] %></h5>
                   </div>
-                  <div class="modal-footer">
-                    <form method="GET" action="/downloadformlistsong/<%= artistDB %>/<%= arrsong2[i] %>">
+                  <div class="modal-footer">           
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Ok</button>
-                    </form>
+                      <a href="<%= singfav[i] %>" download=""><button type="submit" onclick="$('#com<%= i %>').modal('hide')" class="btn btn-primary" >Ok</button></a>
                   </div>
                 </div>
               </div>

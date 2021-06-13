@@ -10,21 +10,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>CMood</title>
-    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
-    <link rel="stylesheet" href="../stylesheets/fontandbg.css">
-    <link rel="stylesheet" href="../stylesheets/button.css">
-    <link rel="stylesheet" href="../stylesheets/buttonprofile.css">
+    <link rel = "icon" href = "/images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
+    <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:rgb(4, 4, 87,0.6)">
       <a class="navbar-brand text-white" href="#">
         <% if(name === 'undefined'){ %>
-          <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
         <%}else if(preOrNot){ %>
-          <img src="../images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <img src="/images/bestlogopre.png" width="60px"><span style="font-size: 20px;"> CMood</span>
         <%}else if(!preOrNot){ %>
-          <img src="../images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
+          <img src="/images/bestlogo.png" width="60px"><span style="font-size: 20px;"> CMood</span>
         <%} %>
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,10 +78,10 @@
             <% } %>
         </div>
     </nav>
-    <div class="mt-5 container-fluid m-auto  rounded p-5" style="width: 90%; word-wrap:break-word; background-color:rgb(232, 244, 255,0.4)">
+    <div class="mt-5 container-fluid m-auto   p-5" style="width: 90%; word-wrap:break-word; background-color:rgb(232, 244, 255,0.4); border-radius:35px">
         <div class="row p-5">
-            <img class="img-fluid col-4" src="../images/pop.jpg">
-            <div class="col-7 m-auto">
+            <img class="img-fluid col-lg-4" src="/images/pop.jpg">
+            <div class="col-lg-7 m-auto">
                 <h1 class="p-3" style="font-size: 60px;">Popular Music</h1>
                 <h2 class="p-3">Genre : <span class="badge badge-info">Thai pop</span> <span class="badge badge-info">korea</span> <span class="badge badge-info">international</span> <span class="badge badge-info">indie</span></h2>
             </div>
@@ -93,7 +93,7 @@
                 <th scope="col">Number</th>
                 <th scope="col">Artist</th>
                 <th scope="col">Title</th>
-                <th scope="col">song</th>
+                <!-- <th scope="col">song</th> -->
                 <th scope="col">Download</th>
                 <th scope="col">lyrics</th>
                 <th scope="col">Favorite</th>
@@ -105,28 +105,28 @@
                   <th scope="row" class="align-middle"><%= i+1 %></th>
                   <th><img src="<%= result[i][3] %>" class="img-fluid" width="100px">&nbsp;&nbsp;<%= result[i][1] %></th>
                   <th  class="align-middle"><%= result[i][2] %></th>
-                  <td class="align-middle">
+                  <!-- <td class="align-middle">
                     <audio controls >
                       <source  src="<%= result[i][4] %>" type="audio/mpeg">
                     </audio>
-                  </td>
+                  </td> -->
                   <%if(name === 'undefined'){ %>
-                    <td class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                    <td class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                   <%}else{ %>
                     <%if(preOrNot){ %>
-                      <td class="align-middle"><a href="" data-target="#com<%= i %>" data-toggle="modal"><img src="../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                      <td class="align-middle"><a href="" data-target="#com<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                     <%}else{ %>
-                      <td class="align-middle"><a href="" data-target="#gopre<%= i %>" data-toggle="modal"><img src="../images/downloadsong.png" class="img-fluid" width="30px"></a></td>
+                      <td class="align-middle"><a href="" data-target="#gopre<%= i %>" data-toggle="modal"><img src="/images/downloadsong.png" class="img-fluid" width="30px"></a></td>
                     <%} %>
                   <%} %>
-                  <th class="align-middle"><a href="/detail/<%= result[i][1] %>/<%= result[i][2] %>"><img src="../images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
+                  <th class="align-middle"><a href="/lyrics/detail/<%= result[i][1] %>/<%= result[i][2] %>"><img src="/images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
                   <%if(name === 'undefined'){ %>
-                    <th class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="../images/darkstar.png" class="img-fluid" width="30px"></a></th>
+                    <th class="align-middle"><a href="" data-target="#download<%= i %>" data-toggle="modal"><img src="/images/darkstar.png" class="img-fluid" width="30px"></a></th>
                   <%}else{ %>
                     <%if(tf[i]){ %>
-                      <th class="align-middle"><a href="/popdel/<%= result[i][1] %>/<%= result[i][2] %>" ><img src="../images/star.png" class="img-fluid" width="30px"></a></th>
+                      <th class="align-middle"><a href="/popular/unFav/<%= result[i][1] %>/<%= result[i][2] %>" ><img src="/images/star.png" class="img-fluid" width="30px"></a></th>
                     <%}else{ %>
-                      <th class="align-middle"><a href="/popfav/<%= result[i][1] %>/<%= result[i][2] %>"><img src="../images/darkstar.png" class="img-fluid" width="30px"></a></th>
+                      <th class="align-middle"><a href="/popular/addFav/<%= result[i][1] %>/<%= result[i][2] %>"><img src="/images/darkstar.png" class="img-fluid" width="30px"></a></th>
                     <%} %>
                   <%} %>
                 </tr>
@@ -164,10 +164,8 @@
                         Are you sure to download <h5><%= result[i][2] %></h5>
                       </div>
                       <div class="modal-footer">
-                        <form method="GET" action="/popdown/<%= result[i][1] %>/<%= result[i][2] %>">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Ok</button>
-                        </form>
+                          <a href="<%= result[i][4] %>" download=""><button type="submit" onclick="$('#com<%= i %>').modal('hide')" class="btn btn-primary" >Ok</button></a>
                       </div>
                     </div>
                   </div>

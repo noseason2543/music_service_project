@@ -81,14 +81,14 @@
           <% } %>
         </div>
     </nav>
-    <div class="p-3 m-5 rounded" style="background-color: rgb(138, 228, 228,0.3);">
+    <div class="p-3 m-5 " style="background-color: rgb(138, 228, 228,0.3); border-radius:30px">
         <h1 class="text-white mt-5 ml-5 button text-left" style="font-size: 60px;">Artist :</h1>
       <%for(let i = 0;i< artist1.length;i++){ %>
         <%if(artist1[i] === 'notfound'){ %>
 
         <%}else{ %>
-          <div class=" card1 button rounded m-5 p-5 style_prevu_kit" style="background-color: rgb(138, 228, 228,0.4);">
-            <a href="/findlistsong/<%=artist1[i] %>" style="text-decoration:none"><img src="<%= URLimage1[i] %>" class="rounded img-fluid"  style="width: 20rem; max-height:350px">
+          <div class=" card1 button m-5 mb-2 mt-3 p-5 style_prevu_kit" style="background-color: rgb(138, 228, 228,0.4); border-radius:30px">
+            <a href="/listsong/find/<%=artist1[i] %>" style="text-decoration:none"><img src="<%= URLimage1[i] %>" class="rounded img-fluid"  style="width: 15rem; max-height:350px">
               <p style="padding-top: 15px; font-size:30px; color:white"><b><%=artist1[i] %></b></p>
               <h4 class="p-2">Genre : <span class="badge badge-info"><%= genre %></span></h4>
             </a><br>
@@ -98,7 +98,7 @@
       <%if(songarr[0][0] === 'notfound'){ %>
 
       <%}else{ %>
-        <h1 class="text-white mt-5 ml-5 mb-5 button text-left" style="font-size: 60px;">Song :</h1>
+        <h1 class="text-white ml-5 mb-5 button text-left" style="font-size: 60px;">Song :</h1>
          <table class="table table-borderless table-hover table-responsive-lg m-1">
               <thead>
                 <tr>
@@ -118,7 +118,7 @@
                   <th scope="row" class="align-middle"><%= j+1 %></th>
                   <th><img src="<%= URLimage1[j] %>" class="img-fluid" width="100px">&nbsp;&nbsp;<%= songarr[j][0] %></th>
                   <th class="align-middle"><%= songarr[j][1] %></th>
-                  <th class="align-middle"><a href="/detail/<%= songarr[j][0] %>/<%= songarr[j][1] %>"><img src="../images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
+                  <th class="align-middle"><a href="/lyrics/detail/<%= songarr[j][0] %>/<%= songarr[j][1] %>"><img src="../images/song-lyrics.png" class="img-fluid" width="30px"></a></th>
                 </tr>
               </tbody>
             

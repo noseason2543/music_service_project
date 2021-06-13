@@ -10,13 +10,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>CMood</title>
-    <link rel = "icon" href = "../images/bestlogopre.png" type = "image/x-icon">
-    <link rel="stylesheet" href="../stylesheets/fontandbg.css">
-    <link rel="stylesheet" href="../stylesheets/button.css">
+    <link rel = "icon" href = "/images/bestlogopre.png" type = "image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel="stylesheet" href="/stylesheets/button.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light text-light" style="background-color:rgb(4, 4, 87,0.6)">
-        <h1><img src="../images/bestlogopre.png" width="40px">CMood</h1>
+        <h1><img src="/images/bestlogopre.png" width="40px">CMood</h1>
     </nav>   
     <div class="m-auto mt-5 rounded p-5" style="width: 90%; background-color:rgb(232, 244, 255,0.4); word-wrap:break-word" >
       <a class="float-left" href="/backEnd"><img class="float-left img-fluid " width="30px" src="/images/arrow.png"></a>
@@ -27,11 +27,11 @@
             sorting
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/all">sort by name</a>
-            <a class="dropdown-item" href="/sortusername">sort by username</a>
+            <a class="dropdown-item" href="/backend/listAllUsers">sort by name</a>
+            <a class="dropdown-item" href="/backend/sortByUsername">sort by username</a>
           </div>
         </div>
-        <form class="d-flex flex-row-reverse form-group col-lg-6" action="/usersearch" method="POST">
+        <form class="d-flex flex-row-reverse form-group col-lg-6" action="/backend/searchUser" method="POST">
           <button class="slide btn btn-outline-info" type="submit">Search</button>
           <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
         </form>
@@ -53,7 +53,7 @@
                   <th scope="row" class="align-middle"><%= i+1 %></th>
                   <th class="align-middle"><%= arr[i][0] %></th>
                   <th class="align-middle"><%= arr[i][1] %></th>
-                  <th><a><img src="../images/crown.png" class="img-fluid" width="30px"></a></th>
+                  <th><a><img src="/images/crown.png" class="img-fluid" width="30px"></a></th>
                 </tr>
                 
               <%}else{ %>
@@ -61,7 +61,7 @@
                   <th scope="row" class="align-middle"><%= i+1 %></th>
                   <th class="align-middle"><%= arr[i][0] %></th>
                   <th class="align-middle"><%= arr[i][1] %></th>
-                  <th><a data-toggle="modal" data-target="#example<%= i %>"><img src="../images/trash.png" class="img-fluid" width="30px"></a></th>
+                  <th><a data-toggle="modal" data-target="#example<%= i %>"><img src="/images/trash.png" class="img-fluid" width="30px"></a></th>
                 </tr>
               <%} %>
               <div class="modal fade text-center" id="example<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -77,7 +77,7 @@
                         Are you sure to delete??<h5>UserID : <%= arr[i][1] %></h5>
                     </div>
                     <div class="modal-footer">
-                      <form action="/del/<%= arr[i][1] %>" method="POST">
+                      <form action="/backend/deleteUser/<%= arr[i][1] %>" method="POST">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Ok</button>
                       </form>

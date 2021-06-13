@@ -28,11 +28,11 @@
             sorting
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/sortbyart">sort by artist</a>
-            <a class="dropdown-item" href="/delsong">sort by song</a>
+            <a class="dropdown-item" href="/backend/sortArtist">sort by artist</a>
+            <a class="dropdown-item" href="/backend/listsong">sort by song</a>
           </div>
         </div>
-        <form class="d-flex flex-row-reverse form-group col-lg-6" action="/searchsongback" method="POST">
+        <form class="d-flex flex-row-reverse form-group col-lg-6" action="/backend/searchsong" method="POST">
           <button class="slide btn btn-outline-info" type="submit">Search</button>
           <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
         </form>
@@ -68,7 +68,7 @@
                         Are you sure to delete??<h5><%= songdel[i][0] %></h5>
                     </div>
                     <div class="modal-footer">
-                      <form action="/deletesong/<%= songdel[i][1] %>/<%= songdel[i][0] %>" method="POST">
+                      <form action="/backend/deletesong/<%= songdel[i][1] %>/<%= songdel[i][0] %>" method="POST">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Ok</button>
                       </form>

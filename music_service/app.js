@@ -7,7 +7,12 @@ var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var genreRouter = require('./routes/genre')
+var popularRouter = require('./routes/popular')
+var favoriteRouter = require('./routes/favorite')
+var listsongRouter = require('./routes/listsong')
+var lyricsRouter = require('./routes/lyrics')
+var backendRouter = require('./routes/backend')
 const authRouter = require('./routes/auth')
 const session = require('express-session')
 const fileUpload = require('express-fileupload')
@@ -40,7 +45,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //prefix
 app.use('/auth',authRouter);
-
+app.use('/genre',genreRouter)
+app.use('/popular',popularRouter)
+app.use('/favorite',favoriteRouter)
+app.use('/listsong',listsongRouter)
+app.use('/lyrics',lyricsRouter)
+app.use('/backEnd',backendRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
