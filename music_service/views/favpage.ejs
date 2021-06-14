@@ -36,7 +36,7 @@
               <a class="nav-link text-light " href="/"> Home</a>
             </li>
             <li class="nav-item button">
-              <a class="nav-link text-light " href="#"> FAV/Downloads </a>
+              <a class="nav-link text-light " href="#"> Favorites </a>
             </li>
             <%if(name === 'undefined'){ %>
               
@@ -54,7 +54,7 @@
                 <%} %>       
           </ul>
           <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
-            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Artist or Song" aria-label="Search">
             <button class="slide btn btn-outline-success" type="submit">Search</button>
           </form>
           <% if(name === 'undefined'){ %>
@@ -97,14 +97,14 @@
                 <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   sorting
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="/favorite/sortByArtist">sort by artist</a>
                   <a class="dropdown-item" href="/favorite/sortBySong">sort by song</a>
                 </div>
               </div>
-              <form class="d-flex col-lg-6 flex-row-reverse form-group " action="/favorite/search" method="POST">
+              <form class="mt-1 d-flex col-lg-6 flex-row-reverse form-group " action="/favorite/search" method="POST">
                 <button class="slide btn btn-outline-success" type="submit">Search</button>
-                <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+                <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Artist or Song" aria-label="Search">
               </form>
             </div>
             <table class="table table-borderless table-hover table-responsive-lg">

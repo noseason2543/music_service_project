@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/fontandbg.css">
+    <link rel = "icon" href = "/images/bestlogopre.png" type = "image/x-icon">
     <link rel="stylesheet" href="/stylesheets/button.css">
     <link rel="stylesheet" href="/stylesheets/playmusic.css">
     <link rel="stylesheet" href="/stylesheets/buttonprofile.css">
@@ -38,11 +39,11 @@
             </li>
             <%if(name === 'undefined'){ %>
               <li class="nav-item button">
-                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > FAV/Downloads </a>
+                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > Favorites </a>
               </li>
             <%}else{ %>
               <li class="nav-item button">
-                <a class="nav-link text-light" href="/favorite"> FAV/Downloads </a>
+                <a class="nav-link text-light" href="/favorite"> Favorites </a>
               </li>
             <%} %>
             <%if(name === 'undefined'){ %>
@@ -61,7 +62,7 @@
                 <%} %>  
           </ul>
           <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
-            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Artist or Song" aria-label="Search">
             <button class="slide btn btn-outline-success" type="submit">Search</button>
           </form>
           <% if(name === 'undefined'){ %>

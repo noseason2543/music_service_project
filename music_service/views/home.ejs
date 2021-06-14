@@ -37,11 +37,11 @@
             </li>
             <%if(name === 'undefined'){ %>
               <li class="nav-item button">
-                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > FAV/Downloads </a>
+                <a class="nav-link text-light" href="#" data-target="#fav" data-toggle="modal" > Favorites </a>
               </li>
             <%}else{ %>
               <li class="nav-item button">
-                <a class="nav-link text-light" href="/favorite"> FAV/Downloads </a>
+                <a class="nav-link text-light" href="/favorite"> Favorites </a>
               </li>
             <%} %>
             <%if(name === 'undefined'){ %>
@@ -60,7 +60,7 @@
             <%} %>
           </ul>
           <form class="d-flex ml-auto mt-auto mb-auto mr-auto form-group" action="/search" method="POST">
-            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Search" aria-label="Search">
+            <input id="searchbar " name="search" size="80" class="form-control me-2 buscar-txt rounded search-bar" type="search" placeholder="Artist or Song" aria-label="Search">
             <button class="slide btn btn-outline-success" type="submit">Search</button>
           </form>
           <% if(name === 'undefined'){ %>
